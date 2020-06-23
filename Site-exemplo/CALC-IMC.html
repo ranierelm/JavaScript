@@ -79,7 +79,7 @@
             position: relative;
             top: -75px;
             left: 20px;
-            font-size: 15pt;
+            font-size: 10pt;
         }
         #balança{
             position: absolute;
@@ -95,6 +95,7 @@
             border-color:indigo;
             
         }
+
     </style>
 </head>
 <body>
@@ -108,7 +109,7 @@
     <input type="number" name="txtalt" id="txtalt">
     <input type="number" name="txtpeso" id="txtpeso">
     <input type="button" value="CALCULAR" id="botao" onclick="calc()">
-    <figure>
+        <figure>
         <img id="balança" src="https://www.vidanatural.org.br/wp-content/uploads/2019/12/%C3%8Dndice-de-Massa-Corporal-scaled.jpg" alt="Balança">
     </figure>
     <div id="res"></div>
@@ -116,6 +117,7 @@
         <img id="imagem" src="https://image.freepik.com/free-vector/body-mass-index-vector-illustration_77760-79.jpg" alt="Tabela de parâmetro IMC ideal"> 
     </div>
     <p id="p4">Image source:<a href="https://br.freepik.com/vetores-premium/ilustracao-do-vetor-de-indice-de-massa-corporal_3790036.htm"> freepik</a> </p>
+   
     <script>
         function calc(){
             var talt1 = document.querySelector('input#txtalt')
@@ -124,7 +126,19 @@
             var peso1 = Number(tpeso1.value)
             var res = document.querySelector('div#res')
             var imc = peso1 / alt1**2 // imc = peso/altura**2
-            res.innerHTML = `<strong>Seu IMC está ${(imc).toFixed(1)}</strong>` 
+            if (imc <= 18.5){
+                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>CUIDADO! Você está baixo do peso ideal.</strong>`  
+            }else if (imc > 18.5  && imc <= 24.9){
+                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Peso normal</strong>`  
+            }else if (imc >= 25 && imc <=29.9){
+                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Se cuide, você está um pouco acima do peso.</strong>`   
+            }else if (imc >= 30 && imc <= 34.9){
+                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Cuidado. Obesidade Grau I.</strong>` 
+            }else if (imc >= 35 && imc<= 40){
+                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Cuidado. Obesidade Grau II.</strong>`   
+            }else if (imc > 40){
+                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Obesidade Grau III. Procure um médico.</strong>`   
+            }
         }
     </script>
 </body>
