@@ -43,7 +43,7 @@
             width: 110px; 
         }
         #p4{
-            top: 490px;
+            top: 482px;
             left: 270px;
         }
         #txtalt {
@@ -77,8 +77,9 @@
  }
         #res{
             position: relative;
-            top: -70px;
+            top: -75px;
             left: 20px;
+            font-size: 15pt;
         }
         #balança{
             position: absolute;
@@ -123,7 +124,7 @@
             var peso1 = Number(tpeso1.value)
             var res = document.querySelector('div#res')
             var imc = peso1 / alt1**2 // imc = peso/altura**2
-            res.innerHTML = `Seu IMC está ${(imc).toFixed(1)}` 
+            res.innerHTML = `<strong>Seu IMC está ${(imc).toFixed(1)}</strong>` 
         }
     </script>
 </body>
