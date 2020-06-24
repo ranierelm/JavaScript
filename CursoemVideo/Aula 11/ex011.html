@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estrangeiro ou Brasileiro?</title>
+    <title>NACIONALIDADE</title>
 </head>
 <body>
-    <h1>Nacionalidade</h1>
-    Digite sua nacionalidade:<input type="text" name="txtpais" id="txtpais">
-     <input type="button" value="CHECAR" onclick="checar()">
-     <div id="res"></div>
-     <script>
-         function checar(){
-            var txtpais = document.querySelector('input#txtpais')
+    <h1>Nacionalidade BR</h1>
+    País onde nasceu  <br><input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="CHECAR" onclick="checar()">
+    <div id="res"></div>
+    <script>
+        function checar(){
+            var pais = document.querySelector('input#txtpais')
             var res = document.querySelector('div#res')
-            var pais = Text(txtpais)
-            if (pais == 'Brasil' || pais == 'brasil'){
-                res.innerHTML
+            var origem = String(pais.value)
+            res.innerHTML = `<p>Seu pais de origem é: ${origem}</p>`
+        
+            if (origem =='Brasil' || origem == 'brasil'){
+                res.innerHTML += '<p>Você é Brasileiro(a).</p>'
+            } else {
+                res.innerHTML += '<p>Você é Estrangeiro(a).</p>'
             }
-            
-         }
-     </script>
+        }
+    </script>
 </body>
 </html>
