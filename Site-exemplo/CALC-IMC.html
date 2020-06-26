@@ -5,140 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMC-CALC</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <style>
-        body{
-            background: linear-gradient(35deg, #ccffff,
-      #ffcccc);
-            background-attachment: fixed;
-            background-size: 100%;
-            background-repeat: no-repeat;
-            background-color: #ccffff;
-            font-size: 10pt;
-            font-family: 'Montserrat', sans-serif;
-            
-        }
-        h1{
-            position: absolute;
-            left: 100px;
-            color:palevioletred;
-            font-size: 15pt;
-
-        }
-        #p1, #p2, #p3, #p4{
-            font-size: 12px;
-            color: indigo;
-            position: absolute;
-        }
-        #p1{
-            top: 30px;
-            left: 112px;          
-        }
-        #p2{
-            top: 70px;
-            left: 24px;
-        }
-        #p3{
-            top: 70px;
-            left: 154px;
-            width: 110px; 
-        }
-        #p4{
-            top: 482px;
-            left: 270px;
-        }
-        #txtalt {
-            position: absolute;
-            top: 100px;
-            left: 23px;
-            width: 105px;
-        }
-        #txtpeso{
-            position: absolute;
-            top: 100px;
-            left: 152px;
-            width: 100px;
-            
-        }
-        #botao{
-            position: relative;
-            top: -80px;
-            left: 15px;
-            width: 237px;
-            color: indigo;
-        }
-
-        div.tres {
-            width:400px;
-            height:200px;
-            border: 1px solid;
-            border-radius: 5%;
-            border-color:indigo;
-            background-color: white;
- }
-        #res{
-            position: relative;
-            top: -75px;
-            left: 20px;
-            font-size: 10pt;
-        }
-        #balança{
-            position: absolute;
-            top: 88px;
-            left: 285px;
-            width: 105px;
-        }
-        #imagem{
-            position: absolute;
-            width: 400px;
-            border: 1px solid;
-            border-radius: 5%;
-            border-color:indigo;
-            
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>
-        CALCULADORA DE IMC
-    </h1>
-    <div class="tres"></div>
+    <header>
+        <h1>
+            CALCULADORA DE IMC
+        </h1> 
+    </header>
+    <section>
+        <div class="tres"></div>
     <p id="p1">IMC - ÍNDICE DE MASSA CORPORAL</p>
     <p id="p2">ALTURA (ex: 1.75m)</p>
     <p id="p3">PESO  (ex: 68.1kg)</p>
     <input type="number" name="txtalt" id="txtalt">
     <input type="number" name="txtpeso" id="txtpeso">
     <input type="button" value="CALCULAR" id="botao" onclick="calc()">
-        <figure>
-        <img id="balança" src="https://www.vidanatural.org.br/wp-content/uploads/2019/12/%C3%8Dndice-de-Massa-Corporal-scaled.jpg" alt="Balança">
+    <figure>
+        <img id="balança" src="fotobalança.png" alt="Balança">
     </figure>
+    
     <div id="res"></div>
     <div>  
         <img id="imagem" src="https://image.freepik.com/free-vector/body-mass-index-vector-illustration_77760-79.jpg" alt="Tabela de parâmetro IMC ideal"> 
     </div>
     <p id="p4">Image source:<a href="https://br.freepik.com/vetores-premium/ilustracao-do-vetor-de-indice-de-massa-corporal_3790036.htm"> freepik</a> </p>
-    <script>
-        function calc(){
-            var talt1 = document.querySelector('input#txtalt')
-            var tpeso1 = document.querySelector('input#txtpeso')
-            var alt1 = Number(talt1.value)
-            var peso1 = Number(tpeso1.value)
-            var res = document.querySelector('div#res')
-            var imc = peso1 / alt1**2 // imc = peso/altura**2
-            if (imc <= 18.5){
-                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>CUIDADO! Você está baixo do peso ideal.</strong>`  
-            }else if (imc > 18.5  && imc <= 24.9){
-                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Peso normal</strong>`  
-            }else if (imc >= 25 && imc <=29.9){
-                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Se cuide, você está um pouco acima do peso.</strong>`   
-            }else if (imc >= 30 && imc <= 34.9){
-                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Cuidado. Obesidade Grau I.</strong>` 
-            }else if (imc >= 35 && imc<= 40){
-                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Cuidado. Obesidade Grau II.</strong>`   
-            }else if (imc > 40){
-                res.innerHTML = `<strong>IMC ${(imc).toFixed(1)}<br>Obesidade Grau III. Procure um médico.</strong>`   
-            }
-        }
-    </script>
+    </section>
+    
+    
+    <footer>
+        <p>&copy;2020 RaniereLima</p>
+    </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
